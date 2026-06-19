@@ -27,6 +27,16 @@ function renderTasks() {
 
   taskList.innerHTML = "";
 
+  if (filteredTasks.length === 0) {
+    const empty = document.createElement("li");
+    empty.className = "empty-state";
+    empty.textContent = searchTerm
+      ? `No tasks match "${searchTerm}"`
+      : "No tasks yet. Add one above!";
+    taskList.appendChild(empty);
+    return;
+  }
+
   filteredTasks.forEach((task) => {
     const li = document.createElement("li");
     li.className = "task-item";
