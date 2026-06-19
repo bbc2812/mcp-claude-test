@@ -1,0 +1,17 @@
+{
+  "name": "github-mcp-demo-repo",
+  "version": "1.0.0",
+  "description": "A small demo web app for showcasing GitHub MCP workflows in Claude Code.",
+  "scripts": {
+    "start": "npx serve .",
+    "dev": "npx serve ."
+  },
+  "keywords": [
+    "demo",
+    "github-mcp",
+    "claude-code",
+    "vanilla-js"
+  ],
+  "author": "Muminjon",
+  "license": "MIT"
+}

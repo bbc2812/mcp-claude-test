@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TaskBoard Lite</title>
+  <link rel="stylesheet" href="./src/styles.css" />
+</head>
+<body>
+  <div class="app-shell">
+    <header class="app-header">
+      <div>
+        <p class="eyebrow">Demo Project</p>
+        <h1>TaskBoard Lite</h1>
+        <p class="subtitle">A tiny task manager for GitHub MCP demos</p>
+      </div>
+    </header>
+
+    <main class="main-grid">
+      <section class="card">
+        <h2>Add a Task</h2>
+        <form id="task-form" class="task-form">
+          <label for="task-title">Task title</label>
+          <input
+            id="task-title"
+            name="taskTitle"
+            type="text"
+            placeholder="Enter a task title"
+          />
+
+          <label for="task-category">Category</label>
+          <select id="task-category" name="taskCategory">
+            <option value="General">General</option>
+            <option value="Study">Study</option>
+            <option value="Work">Work</option>
+            <option value="Personal">Personal</option>
+          </select>
+
+          <button type="submit">Add Task</button>
+        </form>
+      </section>
+
+      <section class="card">
+        <div class="tasks-header">
+          <div>
+            <h2>Tasks</h2>
+            <p class="small-text">Manage your current task list</p>
+          </div>
+
+          <div class="search-box">
+            <label class="visually-hidden" for="search-input">Search tasks</label>
+            <input
+              id="search-input"
+              type="text"
+              placeholder="Search tasks..."
+            />
+          </div>
+        </div>
+
+        <ul id="task-list" class="task-list"></ul>
+      </section>
+    </main>
+  </div>
+
+  <script type="module" src="./src/app.js"></script>
+</body>
+</html>
