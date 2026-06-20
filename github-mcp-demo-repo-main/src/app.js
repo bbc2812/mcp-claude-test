@@ -3,6 +3,7 @@ import { initialTasks } from "./data.js";
 const taskForm = document.getElementById("task-form");
 const taskTitleInput = document.getElementById("task-title");
 const taskCategorySelect = document.getElementById("task-category");
+const taskPrioritySelect = document.getElementById("task-priority");
 const taskList = document.getElementById("task-list");
 const searchInput = document.getElementById("search-input");
 
@@ -59,8 +60,13 @@ function renderTasks() {
     meta.className = "task-meta";
     meta.textContent = `Category: ${task.category}`;
 
+    const priorityBadge = document.createElement("span");
+    priorityBadge.className = `priority-badge priority-${(task.priority || "Low").toLowerCase()}`;
+    priorityBadge.textContent = task.priority || "Low";
+
     content.appendChild(title);
     content.appendChild(meta);
+    content.appendChild(priorityBadge);
 
     leftSide.appendChild(checkbox);
     leftSide.appendChild(content);
@@ -77,11 +83,12 @@ function renderTasks() {
   });
 }
 
-function addTask(title, category) {
+function addTask(title, category, priority) {
   const newTask = {
     id: Date.now(),
     title,
     category,
+    priority,
     completed: false
   };
 
@@ -112,13 +119,14 @@ taskForm.addEventListener("submit", (event) => {
 
   const title = taskTitleInput.value.trim();
   const category = taskCategorySelect.value;
+  const priority = taskPrioritySelect.value;
 
   if (!title) {
     alert("Please enter a task title.");
     return;
   }
 
-  addTask(title, category);
+  addTask(title, category, priority);
   taskForm.reset();
 });
 
